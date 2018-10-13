@@ -1,0 +1,358 @@
+@bcolor: #2F9688;
+@xy-badge: xy-badge;
+//图片文件根目录
+@imgroot: "../images/";
+
+// 公用函数
+.bcolor(@bcolor: @bcolor){
+    background-color: @bcolor;
+}
+
+.position(@position: relative;@top: 0;@left: 0; @zIndex:0){
+    position: @position;
+    top: @top;
+    left: @left;
+    z-index: @zIndex;
+}
+
+.box-shadow(@x: 0; @y: 0; @blur: 1px; @color: transparent) {
+    -webkit-box-shadow: @arguments;
+       -moz-box-shadow: @arguments;
+            box-shadow: @arguments;
+}
+
+.border-radius(@radius: 0px) {
+    -webkit-border-radius: @radius;
+       -moz-border-radius: @radius;
+            border-radius: @radius;
+}
+
+.transition(@reset){
+    transition: @reset;
+    -webkit-transition: @reset;
+    -moz-transition: @reset;
+    -o-transition: @reset;
+}
+
+.textoverflow(@overflow: hidden;@toverflow: ellipsis;@whspace: nowrap){
+    overflow: @overflow;
+    text-overflow: @toverflow;
+    white-space: @whspace;
+}
+
+
+html{
+    .bcolor(#f2f2f2);
+    color: #666666
+}
+//顶部导航
+.layui-layout{
+    .layui-logo{
+        line-height: 50px;
+        color: #fff;
+        width: 220px;
+        .bcolor(#226A62);
+        .box-shadow(1px; 0; 2px; rgba(0,0,0,0.1));
+    }
+
+    .layui-header{
+        height: 50px;
+        line-height: 50px;
+        .box-shadow(0; 1px; 2px; rgba(0,0,0,0.1));
+        .bcolor();
+
+        .layui-nav{
+            .layui-nav-bar{
+                height: 3px;
+            }
+        }
+
+        .layui-nav-item{
+            height: 50px;
+            line-height: 50px;
+        }
+    }
+}
+
+.header-left{
+    left: 220px;
+}
+
+.layui-layout{
+    .xy-side{
+        top: 50px;
+        width: 220px;
+        .box-shadow(1px; 0; 2px; rgba(0,0,0,0.1));
+        .bcolor(#20222A) !important;
+
+        .layui-side-scroll{
+            width: 240px;
+
+            .layui-nav-tree{
+                width: 220px;
+                .bcolor(#20222A)
+            }
+        }
+
+        dl{
+            &.layui-nav-child{
+                padding: 5px 0;
+            }
+        }
+    }
+}
+
+.layui-layout{
+    .layui-body{
+        top: 50px;
+        left: 220px;
+        bottom: 0;
+    }
+}
+
+.breadcrumb-box{
+    padding: 0 15px;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 0px;
+}
+
+.content-box{
+    .layui-fluid{
+        padding: 15px;
+    }
+}
+
+.xy-side .layui-nav-item>a{
+    padding: 8px 30px 8px 45px;
+}
+.xy-side .layui-nav-item{
+    a{
+        padding-left: 45px;
+        padding-right: 30px;
+        height: 40px;
+        line-height: 40px;
+    }
+    .layui-icon{
+        .position(absolute; 8px; 22px);
+    }
+}
+
+.xy-span-color{
+    position: absolute;
+    right: 15px;
+}
+
+.@{xy-badge}{
+    .xy-span-color;
+    top: 50%;
+    margin-top: -9px;
+}
+
+.xy-big-font{
+    font-size: 36px;
+    color: #666;
+    line-height: 36px;
+    padding: 5px 0 10px;
+    .textoverflow();
+}
+
+.xy-shortcut-body{
+    li{
+        text-align: center;
+
+        a{
+            &:hover .layui-icon{
+                .bcolor(#f2f2f2);
+            }
+            span{
+                display: inline-block;
+                width: 100%;
+                line-height: 24px;
+                text-align: center;
+                .textoverflow();
+            }
+        }
+
+        .layui-icon{
+            display: inline-block;
+            width: 100%;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            font-size: 30px;
+            color: #333;
+            
+            .border-radius(2px);
+            .bcolor(#F8F8F8);
+            .transition(all .3s);
+        }
+    }
+}
+
+.todolist{
+    width: 100%;
+    height: 190px;
+    overflow: hidden;
+    .position();
+    .bcolor(#fff);
+
+    &>.layui-row{
+        width: 100%;
+        height: 100%;
+        display: none;
+
+        .position(absolute; 5px; 5px);
+        .bcolor(#fff);
+        .transition(all .3s);
+
+        &.tabbar{
+            display: block
+        }
+    }
+
+    a{
+        display: block;
+        padding: 10px 15px;
+        color: #999;
+        .border-radius(2px);
+        .bcolor(#F8F8F8);
+        .transition(all .3s);
+
+        &:hover{
+            .bcolor(#f2f2f2);
+        }
+
+        h4{
+            padding-bottom: 10px;
+            font-size: 12px;
+        }
+
+        p{
+            font-style: normal;
+            font-size: 30px;
+            font-weight: 300;
+            color: @bcolor;
+            .textoverflow();
+        }
+    }
+}
+
+.xy-carousel{
+    text-align: right;
+    top: -31px;
+
+    ul{
+        background: 0 0;
+
+        &:hover{
+            .bcolor(transparent);
+        }
+
+        li{
+            .bcolor(#e2e2e2);
+
+            &.layui-this{
+                .bcolor(#999);
+
+                &:hover{
+                    .bcolor(#999);
+                }
+            }
+            
+            &:hover{
+                .bcolor(#e2e2e2);
+            }
+        }
+    }
+}
+
+.charts{
+    li{
+        height: 332px;
+        display: none;
+        
+        &.charts-this{
+            display: block;
+        }
+        
+    }
+}
+
+//登录页样式
+.login-html{
+    &,body{
+        height: 100%;
+    }
+
+    body{
+        // background: url("@{imgroot}bg.jpg") center center;
+        // background-size: cover;
+    }
+}
+.login{
+    .position(relative);
+    padding: 110px 0;
+    min-height: 100%;
+    box-sizing: border-box;
+
+    .login-footer{
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        line-height: 30px;
+        padding: 20px;
+        text-align: center;
+        box-sizing: border-box;
+        color: rgba(0,0,0,.5);
+    }
+}
+.login-main{
+    width: 375px;
+    margin: 0 auto;
+    .bcolor(#fff);
+    .border-radius(4px);
+    .box-shadow(0;0;12px;rgba(0,0,0,0.2));
+
+    .login-title{
+        padding: 20px;
+        text-align: center;
+
+        h3{
+            font-size: 24px;
+            font-weight: 300;
+        }
+    }
+}
+
+.login-content{
+    padding: 25px 20px;
+
+    .layui-form-item{
+        position: relative;
+
+        label{
+            width: 38px;
+            line-height: 36px;
+            text-align: center;
+            color: #d2d2d2;
+            .position(absolute, 1px, 1px);
+        }
+
+        input{
+            padding-left: 38px;
+        }
+
+        img{
+            height: 38px;
+            margin-left: 15px;
+        }
+    }
+}
+
+.login-footer{
+    p{
+        color: #fff;
+    }
+}
